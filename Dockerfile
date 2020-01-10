@@ -1,15 +1,15 @@
 FROM alpine:3.8
 
-ARG UID=1000
-ARG GID=1000
+ENV UID=1000
+ENV GID=1000
 
 ENV APP_ENV="dev"
 
 #Install Yarn
 RUN apk add yarn
 
-RUN addgroup --gid "$GID" node && \
-    adduser --uid "$UID" -D -G node node
+RUN addgroup --gid $GID node && \
+    adduser --uid $UID -D -G node node
 
 WORKDIR /var/www/html
 
