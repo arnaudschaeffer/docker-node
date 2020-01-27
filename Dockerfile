@@ -6,15 +6,15 @@ ENV GID=1000
 ENV APP_ENV="dev"
 
 #Install Yarn
-RUN apk add yarn
+RUN apk add yarn shadow
 
 RUN addgroup --gid $GID node && \
     adduser --uid $UID -D -G node node
 
 WORKDIR /var/www/html
 
-COPY docker-entrypoint.sh /
-RUN chmod +x /docker-entrypoint.sh
+COPY rootfs /
+RUN chmod +x /*.sh
 
 VOLUME ["/var/www/html"]
 
