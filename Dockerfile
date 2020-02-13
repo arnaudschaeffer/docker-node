@@ -1,4 +1,4 @@
-FROM node:12.14.1-stretch-slim
+FROM node:12.14.1-stretch
 
 ENV UID=1000
 ENV GID=1000
